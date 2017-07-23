@@ -1,0 +1,85 @@
+span {
+	font-style: normal;
+}
+
+.container {
+	width: 600px;
+	margin: 50px auto;
+	text-align: center;
+	box-shadow: black 10px 12px 20px;
+}
+
+input {
+	display: none;
+}
+
+section {
+	overflow: hidden; /* Keeps sections' text from overflowing & overlapping once height becomes 0 */
+	font-family: Buenard, serif;
+	font-style: italic;
+	color: #636466;
+	transition: height 0.5s ease-in-out;
+	height: 0;
+	position: relative;
+}
+
+/* This ruleset is for centering of text within a <section> ... specifically necessary for vertical centering */
+.content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 90%; /* Keeps horizontal centering from collapsing width of <div> ... making it <100% gives it some room at the edges */
+}
+
+label {
+	font-family: Rajdhani, sans-serif;
+	font-size: 28px;
+	display: block;
+	height: 60px;
+	line-height: 60px; /* Centers text vertically within the label */
+	background-image: linear-gradient(#add6f4, #263f84);
+	color: white;
+	border-bottom: 1px solid black;
+	cursor: pointer;
+	position: relative;
+}
+
+label:hover {
+	background-image: linear-gradient(#ff1905, #600101);
+}
+
+label:before, label:after { /* Two vertical strokes at right of label */
+	content: '';
+	width: 4px;
+	height: 20px;
+	background-color: white;
+	position: absolute;
+	top: 20px;
+	right: 30px;
+}
+
+label:after { /* Rotate one of the vertical strokes & you get a plus sign! */
+	transform: rotate(90deg);
+	transition: transform 0.5s ease-in-out, translateX 0.5s ease-in-out;
+}
+
+label:before {
+	transition: transform 0.5s ease-in-out, translateX 0.5s ease-in-out;
+}
+
+input:checked + label:before {
+	transform: rotate(-45deg) translateX(-8px);
+}
+
+input:checked + label:after {
+	transform: rotate(45deg) translateX(8px);
+}
+
+#sec1:checked ~ #section1,
+#sec2:checked ~ #section2,
+#sec3:checked ~ #section3,
+#sec4:checked ~ #section4 {
+	height: 250px; /* In fact, there is NO way using pure CSS to transition to a height that isn't hard-coded -- there are some workarounds, but they
+					  have some pretty severe disadvantages. This is summarized in depth at: https://css-tricks.com/using-css-transitions-auto-dimensions/ */
+}
