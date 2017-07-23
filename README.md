@@ -1,2 +1,2 @@
 # Pure CSS Accordion Interface
-An accordion!
+An [accordion](https://eyacobson.github.io/CSS-project-2-accordion/)!
