@@ -1,2 +1,2 @@
-# CSS-project-2-accordion
-Pure CSS accordion interface
+# Pure CSS Accordion Interface
+An accordion!
